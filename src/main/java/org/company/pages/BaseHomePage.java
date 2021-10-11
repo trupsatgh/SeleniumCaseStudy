@@ -38,31 +38,31 @@ public class BaseHomePage extends BasePage {
     }
 
     public LogoutPage navigateToLogoutPage()  {
-        selectByVisibleText(userMenuBtn, "logout");
+        selectByVisibleText(userMenuBtn, "Logout");
         // check / wait
         return new LogoutPage(driver);
     }
 
     public SettingsPage navigateToSettingsPage()  {
-        selectByVisibleText(userMenuBtn, "logout");
+        selectByVisibleText(userMenuBtn, "My Settings");
         //clickCheckBox(userMenuBtn);
         return new SettingsPage(driver);
     }
 
-    public String  getUserMenuDropDwonItems(){
+    public String  getUserMenuDropDownItems(){
         clickCheckBox(userMenuBtn);
         Select select = new Select(userMenuBtn);
         wait.until(ExpectedConditions.visibilityOf(userMenuDropDownItems));
-        String dropdownverify=userMenuDropDownItems.getText();
-        return dropdownverify;
+        return userMenuDropDownItems.getText();
     }
 
-    public void selectSwitchToLightningExperience()  {
+    /*public LightningPage navigateToSwitchToLightningExperience()  {
         selectByVisibleText(userMenuBtn, "Switch to Lightning Experience");
-    }
+        return new LightningPage(driver);
+    }*/
 
-    public void selectLogout()  {
-
-    }
-
+    /*public DeveloperConsolePage navigateToDeveloperConsole()  {
+        selectByVisibleText(userMenuBtn, "Developer Console");
+        return new DeveloperConsolePage(driver);
+    }*/
 }

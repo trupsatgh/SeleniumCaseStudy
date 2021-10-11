@@ -5,17 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
-
-import static org.company.utilities.Constants.IMPLICIT_WAIT;
-
-public class LoginPage  extends BasePage {
-
-
-    public LoginPage(WebDriver driver) {
-        super(driver);
-        PageFactory.initElements(driver, this);
-    }
+public class LoginPage extends BasePage {
 
     @FindBy(xpath = "//input[@id='username']")
     WebElement username;
@@ -27,10 +17,8 @@ public class LoginPage  extends BasePage {
     WebElement loginBtn;
     @FindBy(xpath = "//*[@id='rememberUn']")
     WebElement rememberMe;
-
     @FindBy(xpath = " //span[@id=\"idcard-identity\"]")
     WebElement idCard;
-
     @FindBy(xpath = "//*[@id='forgot_password_link']")
     WebElement forgotPasswordLink;
     @FindBy(xpath = ".//*[@id='un']")
@@ -38,10 +26,14 @@ public class LoginPage  extends BasePage {
     @FindBy(xpath = ".//*[@id='un']")
     WebElement continueBtn;
 
+    public LoginPage(WebDriver driver) {
+        super(driver);
+        PageFactory.initElements(driver, this);
+    }
+
     public void enterUserName(String usernameData) {
         username.sendKeys(usernameData);
     }
-
 
     public void enterUserDetails(String usernameData, String pwdData) {
         username.sendKeys(usernameData);
@@ -57,45 +49,42 @@ public class LoginPage  extends BasePage {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        //driver.manage().timeouts().implicitlyWait(60000,
-               // TimeUnit.SECONDS);
         return driver.getTitle();
     }
 
-    public HomePage loginToGeHomePage(String usernameData, String pwdData){
+    public HomePage loginToGeHomePage(String usernameData, String pwdData) {
         username.sendKeys(usernameData);
         pwd.sendKeys(pwdData);
         loginBtn.click();
         //click on home tab
-
         return new HomePage(driver);
     }
 
-    public String clickLoginBtn(){
-       click(loginBtn);
-       if (loginErrorMsg!=null){
-           return getErrorMsg(loginErrorMsg);
-       } else{
-           return driver.getTitle();
-       }
+    public String clickLoginBtn() {
+        click(loginBtn);
+        if (loginErrorMsg != null) {
+            return getErrorMsg(loginErrorMsg);
+        } else {
+            return driver.getTitle();
+        }
     }
 
-    public void checkRememberMe(){
+    public void checkRememberMe() {
         clickCheckBox(rememberMe);
     }
 
-
-    public String getIdCardText(){
-        return  getText(idCard);
+    public String getIdCardText() {
+        return getText(idCard);
     }
 
-    public void clickOnForgotPassword(){
+    public void clickOnForgotPassword() {
         click(forgotPasswordLink);
     }
 
-    public void clickOnContinue(){
+    public void clickOnContinue() {
         click(continueBtn);
     }
+
     public void enterUserNameEmail(String usernameEmailData) {
         userNameEmail.sendKeys(usernameEmailData);
     }

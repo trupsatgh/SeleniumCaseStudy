@@ -17,7 +17,6 @@ public class BasePage {
     //constructor
     public BasePage(WebDriver driver) {
         this.driver = driver;
-
     }
 
     public void waitForElement(WebElement element) {
@@ -30,6 +29,7 @@ public class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(element));
         element.click();
     }
+
     public String getErrorMsg(WebElement element){
         return element.getText();
     }
@@ -66,18 +66,6 @@ public class BasePage {
        return element.getText();
     }
 
-
-    /*public static void clickObj(WebElement obj,String objName)
-    {
-        if(obj.isDisplayed())
-        {
-            obj.click();
-            System.out.println("pass :" +objName + "button is clicked");
-        }
-        else
-        {
-            System.out.println("Fail:" +objName+"button is not displayed ,please check the application");
-        }*/
 }
 
 

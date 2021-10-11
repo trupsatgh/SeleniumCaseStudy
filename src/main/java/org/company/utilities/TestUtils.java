@@ -22,20 +22,20 @@ public class TestUtils {
     public static String TESTDATA_SHEET_PATH = System.getProperty("user.dir") +
             "/testdata/SaleoforceTestData.xlsx";
 
-
     public static Object[][] getTestData(String sheetName) {
-        FileInputStream file = null;
+        FileInputStream file;
 
         try {
             file = new FileInputStream(TESTDATA_SHEET_PATH);
         } catch (FileNotFoundException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
+            return null;
         }
         try {
             book = WorkbookFactory.create(file);
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
 
         sheet = book.getSheet(sheetName);
@@ -49,7 +49,6 @@ public class TestUtils {
             }
         }
         return data;
-
     }
 
     public static void takeScreenShot(WebDriver driver) throws IOException {
@@ -71,8 +70,6 @@ public class TestUtils {
 
         //4.Copy file at destination
         FileUtils.copyFile(srcFile, destFile);
-
-
     }
 }
 

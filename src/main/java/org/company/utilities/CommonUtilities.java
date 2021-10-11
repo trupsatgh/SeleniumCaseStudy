@@ -12,10 +12,10 @@ public class CommonUtilities {
     public  String getApplicationProperty(String key) {
         Properties properties = new Properties();
         String filePath = USER_DIR + File.separator + APPLICATION_PROPERTIES;
-        FileInputStream inputfile;
+        FileInputStream inputFile;
         try {
-             inputfile = new FileInputStream(filePath);
-            properties.load(inputfile);
+            inputFile = new FileInputStream(filePath);
+            properties.load(inputFile);
 
         } catch (IOException e) {
             e.printStackTrace();
