@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Chrome test suite">
+    <parameter name="browserName"  value="chrome"/>
+    <listeners>
+        <listener class-name="org.company.listeners.TestListener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true" name="/Users/trupti/work/workspace/SeleniumCaseStudy">
+        <classes>
+                <class name="org.company.LoginTest.LoginTest"></class>
+        </classes>
+    </test>
+</suite>
